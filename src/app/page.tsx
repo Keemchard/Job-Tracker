@@ -76,9 +76,9 @@ export default function Home() {
   const handleUpdate = async (
     data: Omit<JobApplication, "id" | "userId" | "createdAt" | "updatedAt">
   ) => {
-    if (!editingApp) return;
+    if (!editingApp || !user) return;
     try {
-      await updateApplication(editingApp.id, data);
+      await updateApplication(editingApp.id, user.uid, data);
       await fetchApplications();
       toast.success("Application updated!");
     } catch {
@@ -87,9 +87,9 @@ export default function Home() {
   };
 
   const handleDelete = async () => {
-    if (!deleteTarget) return;
+    if (!deleteTarget || !user) return;
     try {
-      await deleteApplication(deleteTarget.id);
+      await deleteApplication(deleteTarget.id, user.uid);
       await fetchApplications();
       toast.success("Application deleted");
       setDeleteTarget(null);

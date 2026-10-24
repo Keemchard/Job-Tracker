@@ -3,22 +3,49 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /applications/{applicationId} {
-      allow read, update, delete: if request.auth != null
+      // Only authenticated users can access their own data
+      allow read: if request.auth != null
+        && resource.data.userId == request.auth.uid;
+
+      allow delete: if request.auth != null
         && resource.data.userId == request.auth.uid;
 
       allow create: if request.auth != null
-        && request.resource.data.userId == request.auth.uid;
+        && request.resource.data.userId == request.auth.uid
+        && isValidApplication(request.resource.data);
+
+      allow update: if request.auth != null
+        && resource.data.userId == request.auth.uid
+        // Prevent changing ownership
+        && request.resource.data.userId == resource.data.userId
+        && isValidApplication(request.resource.data);
+    }
+
+    // Deny everything else
+    match /{document=**} {
+      allow read, write: if false;
     }
   }
 }
 
+function isValidApplication(data) {
+  let validStatuses = ['applied', 'screening', 'interview', 'technical', 'offer', 'accepted', 'rejected', 'withdrawn'];
+  let validWorkModes = ['remote', 'onsite', 'hybrid'];
 
-// rules_version = '2';
-
-// service cloud.firestore {
-//   match /databases/{database}/documents {
-//     match /{document=**} {
-//       allow read, write: if false;
-//     }
-//   }
-// }
+  return data.keys().hasAll(['company', 'position', 'location', 'workMode', 'status', 'dateApplied', 'userId', 'createdAt', 'updatedAt'])
+    && data.company is string && data.company.size() > 0 && data.company.size() <= 200
+    && data.position is string && data.position.size() > 0 && data.position.size() <= 200
+    && data.location is string && data.location.size() > 0 && data.location.size() <= 200
+    && data.status in validStatuses
+    && data.workMode in validWorkModes
+    && data.dateApplied is string && data.dateApplied.size() <= 20
+    && data.userId is string
+    && data.createdAt is string
+    && data.updatedAt is string
+    // Optional fields: validate type and length if present
+    && (!('salary' in data.keys()) || (data.salary is string && data.salary.size() <= 100))
+    && (!('jobUrl' in data.keys()) || (data.jobUrl is string && data.jobUrl.size() <= 500))
+    && (!('contactPerson' in data.keys()) || (data.contactPerson is string && data.contactPerson.size() <= 200))
+    && (!('contactEmail' in data.keys()) || (data.contactEmail is string && data.contactEmail.size() <= 200))
+    && (!('notes' in data.keys()) || (data.notes is string && data.notes.size() <= 2000));
+}
