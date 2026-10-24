@@ -1,0 +1,255 @@
+@use "variables" as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+  animation: fadeIn 150ms ease;
+}
+
+.modal {
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 200ms ease;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px 0;
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: $color-bg-tertiary;
+  color: $color-text-secondary;
+  border-radius: $radius-md;
+  font-size: 1.125rem;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $color-bg-hover;
+    color: $color-text-primary;
+  }
+}
+
+.form {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.input,
+.select,
+.textarea {
+  padding: 10px 14px;
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text-primary;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color $transition-fast;
+
+  &:focus {
+    border-color: $color-accent;
+  }
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+}
+
+.select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8.825L.175 3 1.588 1.588 6 6 10.412 1.588 11.825 3z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.formActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.cancelBtn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text-secondary;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $color-bg-hover;
+    border-color: $color-border-light;
+    color: $color-text-primary;
+  }
+}
+
+.submitBtn {
+  padding: 10px 24px;
+  background: $color-accent;
+  border: none;
+  border-radius: $radius-md;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: $color-accent-hover;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.deleteOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  padding: 20px;
+}
+
+.deleteModal {
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 28px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+}
+
+.deleteIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba($color-danger, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  color: $color-danger;
+  font-size: 1.5rem;
+}
+
+.deleteTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.deleteText {
+  font-size: 0.875rem;
+  color: $color-text-secondary;
+  margin-bottom: 24px;
+}
+
+.deleteActions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.deleteBtn {
+  padding: 10px 24px;
+  background: $color-danger;
+  border: none;
+  border-radius: $radius-md;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: #d32f2f;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

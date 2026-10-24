@@ -1,0 +1,200 @@
+@use "variables" as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: $color-bg;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  padding: 40px 36px;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 32px;
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+
+    span {
+      color: $color-accent;
+    }
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: $color-text-muted;
+    margin-top: 6px;
+  }
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: $color-text-muted;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.input {
+  padding: 11px 14px;
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text-primary;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color $transition-fast;
+
+  &:focus {
+    border-color: $color-accent;
+  }
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+}
+
+.submitBtn {
+  padding: 12px;
+  background: $color-accent;
+  border: none;
+  border-radius: $radius-md;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-fast;
+  margin-top: 4px;
+
+  &:hover {
+    background: $color-accent-hover;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 4px 0;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: $color-border;
+  }
+
+  span {
+    font-size: 0.75rem;
+    color: $color-text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+}
+
+.googleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px;
+  background: transparent;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text-primary;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  svg {
+    font-size: 1.125rem;
+  }
+
+  &:hover {
+    background: $color-bg-hover;
+    border-color: $color-border-light;
+  }
+}
+
+.footer {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: $color-text-muted;
+
+  button {
+    background: none;
+    border: none;
+    color: $color-accent;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-accent-hover;
+    }
+  }
+}
+
+.error {
+  background: rgba($color-danger, 0.12);
+  border: 1px solid rgba($color-danger, 0.3);
+  border-radius: $radius-md;
+  padding: 10px 14px;
+  font-size: 0.825rem;
+  color: $color-danger;
+}
+
+.loadingPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-text-muted;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,184 @@
+@use "variables" as *;
+
+.header {
+  margin-bottom: 32px;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  p {
+    color: $color-text-secondary;
+    font-size: 0.9rem;
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.statCard {
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: 20px 24px;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $color-border-light;
+    transform: translateY(-1px);
+  }
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.statFooter {
+  font-size: 0.8rem;
+  color: $color-text-muted;
+  margin-top: 8px;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+}
+
+.statusBreakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.statusItem {
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.statusInfo {
+  .statusName {
+    font-size: 0.8rem;
+    color: $color-text-secondary;
+  }
+
+  .statusCount {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+}
+
+.recentList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recentItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $color-border-light;
+    background: $color-bg-tertiary;
+  }
+}
+
+.recentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .company {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .position {
+    font-size: 0.825rem;
+    color: $color-text-secondary;
+  }
+}
+
+.recentMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: $color-text-muted;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: $color-text-muted;
+
+  svg {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    opacity: 0.4;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    color: $color-text-secondary;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    max-width: 360px;
+    margin: 0 auto 20px;
+  }
+}
