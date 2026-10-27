@@ -192,6 +192,20 @@
   }
 }
 
+.footer {
+  margin-top: 48px;
+  padding: 16px 0 4px;
+  border-top: 1px solid $color-border;
+  font-size: 0.775rem;
+  color: $color-text-muted;
+  letter-spacing: 0.02em;
+
+  span {
+    color: $color-accent;
+    font-weight: 600;
+  }
+}
+
 .overlay {
   display: none;
 

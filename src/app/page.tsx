@@ -242,6 +242,9 @@ export default function Home() {
               onDelete={(app) => setDeleteTarget(app)}
             />
           )}
+          <footer className={styles.footer}>
+            made by <span>KC</span> · {new Date().getFullYear()}
+          </footer>
         </main>
 
         <button
