@@ -68,10 +68,16 @@ export default function AuthPage() {
     <div className={styles.page}>
       <div className={styles.card}>
         <div className={styles.logo}>
-          <h1>
-            Job<span>Tracker</span>
-          </h1>
-          <p>Track your job applications in one place</p>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 8 }}>
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="8" fill="#6366f1"/>
+              <text x="5" y="22" fontFamily="monospace" fontWeight="800" fontSize="15" fill="white">&gt;_</text>
+            </svg>
+            <h1 style={{ fontSize: "1.5rem", fontWeight: 700, letterSpacing: "-0.02em", margin: 0, color: "var(--color-text-primary)" }}>
+              hired<span style={{ color: "#6366f1" }}>.log</span>
+            </h1>
+          </div>
+          <p style={{ fontSize: "0.85rem", color: "var(--color-text-muted)", margin: 0 }}>Your job hunt, documented.</p>
         </div>
 
         <h2 className={styles.title}>

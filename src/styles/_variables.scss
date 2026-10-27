@@ -1,13 +1,13 @@
-$color-bg: #0f1117;
-$color-bg-secondary: #1a1d27;
-$color-bg-tertiary: #242836;
-$color-bg-hover: #2a2f3e;
-$color-border: #2e3348;
-$color-border-light: #3a3f54;
+$color-bg: var(--color-bg);
+$color-bg-secondary: var(--color-bg-secondary);
+$color-bg-tertiary: var(--color-bg-tertiary);
+$color-bg-hover: var(--color-bg-hover);
+$color-border: var(--color-border);
+$color-border-light: var(--color-border-light);
 
-$color-text-primary: #e8eaf0;
-$color-text-secondary: #9ca3b4;
-$color-text-muted: #6b7280;
+$color-text-primary: var(--color-text-primary);
+$color-text-secondary: var(--color-text-secondary);
+$color-text-muted: var(--color-text-muted);
 
 $color-accent: #6366f1;
 $color-accent-hover: #818cf8;

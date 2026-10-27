@@ -15,13 +15,13 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: 16,
+          fontSize: 14,
           fontWeight: 800,
           color: "white",
-          fontFamily: "system-ui, sans-serif",
+          fontFamily: "monospace",
         }}
       >
-        JT
+        &gt;_
       </div>
     ),
     { ...size }

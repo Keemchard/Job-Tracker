@@ -23,6 +23,7 @@ import Dashboard from "@/components/Dashboard";
 import ApplicationList from "@/components/ApplicationList";
 import ApplicationModal from "@/components/ApplicationModal";
 import DeleteConfirmModal from "@/components/DeleteConfirmModal";
+import ThemeToggle from "@/components/ThemeToggle";
 import styles from "@/styles/layout.module.scss";
 import authStyles from "@/styles/auth.module.scss";
 
@@ -123,9 +124,9 @@ export default function Home() {
           position="top-right"
           toastOptions={{
             style: {
-              background: "#1a1d27",
-              color: "#e8eaf0",
-              border: "1px solid #2e3348",
+              background: "var(--color-bg-secondary)",
+              color: "var(--color-text-primary)",
+              border: "1px solid var(--color-border)",
               borderRadius: "10px",
             },
           }}
@@ -161,10 +162,18 @@ export default function Home() {
           className={`${styles.sidebar} ${sidebarOpen ? styles.open : ""}`}
         >
           <div className={styles.logo}>
-            <h1>
-              Job<span>Tracker</span>
-            </h1>
-            <p>Application Records</p>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="28" height="28" rx="7" fill="#6366f1"/>
+                <text x="5" y="19" fontFamily="monospace" fontWeight="800" fontSize="13" fill="white">&gt;_</text>
+              </svg>
+              <h1 style={{ fontSize: "1.1rem", fontWeight: 700, letterSpacing: "-0.02em", margin: 0, color: "var(--color-text-primary)" }}>
+                hired<span style={{ color: "#6366f1" }}>.log</span>
+              </h1>
+            </div>
+            <p style={{ fontSize: "0.7rem", color: "var(--color-text-muted)", textTransform: "uppercase", letterSpacing: "0.08em", margin: 0 }}>
+              your hunt, your log.
+            </p>
           </div>
           <nav className={styles.nav}>
             <button
@@ -193,6 +202,7 @@ export default function Home() {
                 <span className={styles.userEmail}>{user.email}</span>
               </div>
             </div>
+            <ThemeToggle />
             <button
               className={styles.logoutBtn}
               onClick={handleLogout}

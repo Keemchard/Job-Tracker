@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "JobTracker — Track your job applications";
+export const alt = "hired.log — Your job hunt, documented.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -36,16 +36,17 @@ export default function OGImage() {
               alignItems: "center",
               justifyContent: "center",
               marginRight: 20,
-              fontSize: 36,
+              fontSize: 32,
               fontWeight: 800,
               color: "white",
+              fontFamily: "monospace",
             }}
           >
-            JT
+            &gt;_
           </div>
           <div style={{ display: "flex", fontSize: 52, fontWeight: 800, color: "#e8eaf0" }}>
-            Job
-            <span style={{ color: "#6366f1" }}>Tracker</span>
+            hired
+            <span style={{ color: "#6366f1" }}>.log</span>
           </div>
         </div>
         <div
@@ -57,7 +58,7 @@ export default function OGImage() {
             lineHeight: 1.5,
           }}
         >
-          Track and manage your job applications in one place
+          Your job hunt, documented.
         </div>
         <div
           style={{

@@ -2,17 +2,20 @@ import type { Metadata, Viewport } from "next";
 import AuthProvider from "@/components/AuthProvider";
 import "@/styles/globals.scss";
 
-const APP_NAME = "JobTracker";
+const APP_NAME = "hired.log";
 const APP_DESCRIPTION =
-  "Track and manage your job applications in one place. Monitor application statuses, organize company records, and streamline your job search.";
+  "Your job hunt, documented. Track applications, monitor statuses, and land that offer.";
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://jobtracker.app";
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#0f1117",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0f1117" },
+    { media: "(prefers-color-scheme: light)", color: "#f8f9fc" },
+  ],
+  colorScheme: "dark light",
 };
 
 export const metadata: Metadata = {
@@ -23,6 +26,7 @@ export const metadata: Metadata = {
   description: APP_DESCRIPTION,
   applicationName: APP_NAME,
   keywords: [
+    "hired.log",
     "job tracker",
     "job application tracker",
     "job search",
@@ -34,8 +38,8 @@ export const metadata: Metadata = {
     "application status",
     "job organizer",
   ],
-  authors: [{ name: APP_NAME }],
-  creator: APP_NAME,
+  authors: [{ name: "Keemchard Tamio" }],
+  creator: "Keemchard Tamio",
   metadataBase: new URL(APP_URL),
   alternates: {
     canonical: "/",
@@ -100,6 +104,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -1,7 +1,7 @@
 {
-  "name": "JobTracker — Job Application Tracker",
-  "short_name": "JobTracker",
-  "description": "Track and manage your job applications in one place. Monitor application statuses, organize company records, and streamline your job search.",
+  "name": "hired.log",
+  "short_name": "hired.log",
+  "description": "Your job hunt, documented.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f1117",

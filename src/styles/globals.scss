@@ -2,6 +2,30 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
+:root {
+  --color-bg: #0f1117;
+  --color-bg-secondary: #1a1d27;
+  --color-bg-tertiary: #242836;
+  --color-bg-hover: #2a2f3e;
+  --color-border: #2e3348;
+  --color-border-light: #3a3f54;
+  --color-text-primary: #e8eaf0;
+  --color-text-secondary: #9ca3b4;
+  --color-text-muted: #6b7280;
+}
+
+[data-theme="light"] {
+  --color-bg: #f8f9fc;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: #f1f3f9;
+  --color-bg-hover: #e8ebf4;
+  --color-border: #dde1ee;
+  --color-border-light: #c8cede;
+  --color-text-primary: #0f1117;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #9ca3af;
+}
+
 *,
 *::before,
 *::after {
