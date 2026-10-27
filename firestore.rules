@@ -30,7 +30,7 @@ service cloud.firestore {
 
 function isValidApplication(data) {
   let validStatuses = ['applied', 'screening', 'interview', 'technical', 'offer', 'accepted', 'rejected', 'withdrawn'];
-  let validWorkModes = ['remote', 'onsite', 'hybrid'];
+  let validWorkModes = ['remote', 'onsite', 'hybrid', 'wfh'];
 
   return data.keys().hasAll(['company', 'position', 'location', 'workMode', 'status', 'dateApplied', 'userId', 'createdAt', 'updatedAt'])
     && data.company is string && data.company.size() > 0 && data.company.size() <= 200

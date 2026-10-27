@@ -234,6 +234,193 @@
   }
 }
 
+.aiSection {
+  background: rgba($color-accent, 0.06);
+  border: 1px solid rgba($color-accent, 0.2);
+  border-radius: $radius-md;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.aiHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $color-accent-hover;
+  flex-wrap: wrap;
+}
+
+.aiTabs {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.aiTab {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background: transparent;
+  color: $color-text-muted;
+  font-size: 0.775rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  svg {
+    font-size: 0.875rem;
+  }
+
+  &:hover {
+    background: $color-bg-hover;
+    color: $color-text-secondary;
+  }
+}
+
+.aiTabActive {
+  background: $color-accent-muted;
+  border-color: rgba($color-accent, 0.4);
+  color: $color-accent-hover;
+}
+
+.aiImageDrop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px;
+  background: $color-bg;
+  border: 1.5px dashed $color-border;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all $transition-fast;
+  min-height: 100px;
+  text-align: center;
+
+  &:hover {
+    border-color: $color-accent;
+    background: $color-accent-muted;
+  }
+
+  p {
+    font-size: 0.825rem;
+    color: $color-text-secondary;
+    margin: 0;
+  }
+
+  span {
+    font-size: 0.75rem;
+    color: $color-text-muted;
+  }
+}
+
+.aiImageDrop:focus {
+  outline: none;
+  border-color: $color-accent;
+}
+
+.aiImageIcon {
+  font-size: 1.75rem;
+  color: $color-text-muted;
+}
+
+.aiImagePreview {
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+  border-radius: $radius-sm;
+}
+
+.aiImageHint {
+  font-size: 0.75rem;
+  color: $color-text-muted;
+  margin-top: 4px;
+}
+
+:global(kbd) {
+  display: inline-block;
+  padding: 1px 5px;
+  background: $color-bg-tertiary;
+  border: 1px solid $color-border-light;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: $font-mono;
+  color: $color-text-secondary;
+  line-height: 1.4;
+}
+
+.aiIcon {
+  font-size: 1rem;
+}
+
+.aiTextarea {
+  padding: 10px 14px;
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  color: $color-text-primary;
+  font-size: 0.825rem;
+  font-family: inherit;
+  outline: none;
+  resize: vertical;
+  min-height: 60px;
+  transition: border-color $transition-fast;
+  line-height: 1.5;
+
+  &:focus {
+    border-color: $color-accent;
+  }
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+}
+
+.aiButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 16px;
+  background: linear-gradient(135deg, $color-accent, #8b5cf6);
+  border: none;
+  border-radius: $radius-md;
+  color: white;
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-fast;
+  align-self: flex-start;
+
+  svg {
+    font-size: 0.9rem;
+  }
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.aiError {
+  font-size: 0.8rem;
+  color: $color-danger;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

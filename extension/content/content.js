@@ -118,6 +118,7 @@
   function detectWorkMode() {
     const text = document.body.innerText.toLowerCase();
     if (text.includes("remote") && text.includes("hybrid")) return "hybrid";
+    if (/\bwork\s*from\s*home\b/.test(text) || /\bwfh\b/.test(text)) return "wfh";
     if (/\bremote\b/.test(text)) return "remote";
     if (/\bhybrid\b/.test(text)) return "hybrid";
     return "onsite";
@@ -179,6 +180,7 @@
               <option value="onsite">On-site</option>
               <option value="remote">Remote</option>
               <option value="hybrid">Hybrid</option>
+              <option value="wfh">Work From Home</option>
             </select>
           </div>
           <div class="jt-field">

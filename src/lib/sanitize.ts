@@ -11,7 +11,7 @@ const VALID_STATUSES: ApplicationStatus[] = [
   "withdrawn",
 ];
 
-const VALID_WORK_MODES: WorkMode[] = ["remote", "onsite", "hybrid"];
+const VALID_WORK_MODES: WorkMode[] = ["remote", "onsite", "hybrid", "wfh"];
 
 const FIELD_LIMITS: Record<string, number> = {
   company: 200,

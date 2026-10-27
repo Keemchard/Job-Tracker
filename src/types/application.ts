@@ -8,7 +8,7 @@ export type ApplicationStatus =
   | "rejected"
   | "withdrawn";
 
-export type WorkMode = "remote" | "onsite" | "hybrid";
+export type WorkMode = "remote" | "onsite" | "hybrid" | "wfh";
 
 export interface JobApplication {
   id: string;
@@ -54,4 +54,5 @@ export const WORK_MODE_LABELS: Record<WorkMode, string> = {
   remote: "Remote",
   onsite: "On-site",
   hybrid: "Hybrid",
+  wfh: "Work From Home",
 };
