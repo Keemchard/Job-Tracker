@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "hired.log — Your job hunt, documented.";
+export const alt = "hired.log — Free Job Application Tracker & Job Hunt Manager";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -58,7 +58,7 @@ export default function OGImage() {
             lineHeight: 1.5,
           }}
         >
-          Your job hunt, documented.
+          Free job application tracker. Log applications, track interviews, land offers.
         </div>
         <div
           style={{

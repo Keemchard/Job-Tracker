@@ -4,8 +4,8 @@ import "@/styles/globals.scss";
 
 const APP_NAME = "hired.log";
 const APP_DESCRIPTION =
-  "Your job hunt, documented. Track applications, monitor statuses, and land that offer.";
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://jobtracker.app";
+  "Track all your job applications in one place with hired.log — a free job hunt tracker. Log companies, monitor application statuses, track interviews, and stay organized throughout your entire job search.";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://job-tracker-one-mocha.vercel.app";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -20,23 +20,33 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: `${APP_NAME} — Job Application Tracker`,
+    default: `${APP_NAME} — Free Job Application Tracker & Job Hunt Manager`,
     template: `%s | ${APP_NAME}`,
   },
   description: APP_DESCRIPTION,
   applicationName: APP_NAME,
   keywords: [
-    "hired.log",
     "job tracker",
     "job application tracker",
-    "job search",
-    "application management",
-    "career tracker",
-    "job hunting",
+    "free job tracker",
+    "track job applications",
+    "job hunt tracker",
+    "job search tracker",
+    "job application manager",
+    "job search organizer",
+    "job application log",
     "interview tracker",
-    "job board",
-    "application status",
-    "job organizer",
+    "job offer tracker",
+    "job pipeline tracker",
+    "job application status tracker",
+    "career tracker",
+    "job hunting app",
+    "job search management",
+    "job application spreadsheet alternative",
+    "employment tracker",
+    "job hunt dashboard",
+    "job board tracker",
+    "hired.log",
   ],
   authors: [{ name: "Keemchard Tamio" }],
   creator: "Keemchard Tamio",
@@ -49,20 +59,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: APP_URL,
     siteName: APP_NAME,
-    title: `${APP_NAME} — Job Application Tracker`,
+    title: `${APP_NAME} — Free Job Application Tracker`,
     description: APP_DESCRIPTION,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: `${APP_NAME} — Track your job applications`,
+        alt: `${APP_NAME} — Track your entire job hunt in one place`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${APP_NAME} — Job Application Tracker`,
+    title: `${APP_NAME} — Free Job Application Tracker`,
     description: APP_DESCRIPTION,
     images: ["/og-image.png"],
   },
@@ -88,17 +98,35 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
+    "@type": "SoftwareApplication",
     name: APP_NAME,
+    alternateName: ["Job Application Tracker", "Job Hunt Tracker", "Job Tracker"],
     description: APP_DESCRIPTION,
     url: APP_URL,
     applicationCategory: "ProductivityApplication",
+    applicationSubCategory: "Job Search Tool",
     operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript. Requires HTML5.",
+    featureList: [
+      "Track job applications and statuses",
+      "Log companies, positions, and contacts",
+      "Monitor interview progress",
+      "Track job offers and rejections",
+      "Dashboard with application analytics",
+      "AI-powered job description extraction",
+      "Search and filter applications",
+    ],
     offers: {
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
+      availability: "https://schema.org/OnlineOnly",
     },
+    author: {
+      "@type": "Person",
+      name: "Keemchard Tamio",
+    },
+    keywords: "job tracker, job application tracker, job search, career tracker, interview tracker",
   };
 
   return (

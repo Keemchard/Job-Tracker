@@ -1,13 +1,13 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://jobtracker.app";
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://job-tracker-one-mocha.vercel.app";
 
   return [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: "weekly",
+      changeFrequency: "monthly",
       priority: 1,
     },
   ];
