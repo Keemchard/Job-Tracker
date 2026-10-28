@@ -8,6 +8,11 @@ import {
   IoClose,
   IoLogOut,
   IoPersonCircle,
+  IoApps,
+  IoBarChart,
+  IoDocumentText,
+  IoRibbon,
+  IoChatbubbles,
 } from "react-icons/io5";
 import { Toaster, toast } from "react-hot-toast";
 import { useAuth } from "@/components/AuthProvider";
@@ -24,10 +29,15 @@ import ApplicationList from "@/components/ApplicationList";
 import ApplicationModal from "@/components/ApplicationModal";
 import DeleteConfirmModal from "@/components/DeleteConfirmModal";
 import ThemeToggle from "@/components/ThemeToggle";
+import KanbanBoard from "@/components/KanbanBoard";
+import Analytics from "@/components/Analytics";
+import CoverLetterGenerator from "@/components/CoverLetterGenerator";
+import ResumeMatchScore from "@/components/ResumeMatchScore";
+import InterviewPrep from "@/components/InterviewPrep";
 import styles from "@/styles/layout.module.scss";
 import authStyles from "@/styles/auth.module.scss";
 
-type View = "dashboard" | "applications";
+type View = "dashboard" | "applications" | "kanban" | "analytics" | "cover-letter" | "resume-match" | "interview-prep";
 
 export default function Home() {
   const { user, loading: authLoading, logout } = useAuth();
@@ -96,6 +106,19 @@ export default function Home() {
       setDeleteTarget(null);
     } catch {
       toast.error("Failed to delete application");
+    }
+  };
+
+  const handleStatusChange = async (appId: string, newStatus: string) => {
+    if (!user) return;
+    try {
+      await updateApplication(appId, user.uid, {
+        status: newStatus as import("@/types/application").ApplicationStatus,
+      });
+      await fetchApplications();
+      toast.success("Status updated!");
+    } catch {
+      toast.error("Failed to update status");
     }
   };
 
@@ -190,6 +213,44 @@ export default function Home() {
               <IoBriefcase />
               Applications
             </button>
+            <button
+              className={`${styles.navItem} ${view === "kanban" ? styles.active : ""}`}
+              onClick={() => navigate("kanban")}
+            >
+              <IoApps />
+              Kanban Board
+            </button>
+            <button
+              className={`${styles.navItem} ${view === "analytics" ? styles.active : ""}`}
+              onClick={() => navigate("analytics")}
+            >
+              <IoBarChart />
+              Analytics
+            </button>
+
+            <div className={styles.navLabel}>AI Tools</div>
+
+            <button
+              className={`${styles.navItem} ${view === "cover-letter" ? styles.active : ""}`}
+              onClick={() => navigate("cover-letter")}
+            >
+              <IoDocumentText />
+              Cover Letters
+            </button>
+            <button
+              className={`${styles.navItem} ${view === "resume-match" ? styles.active : ""}`}
+              onClick={() => navigate("resume-match")}
+            >
+              <IoRibbon />
+              Resume Match
+            </button>
+            <button
+              className={`${styles.navItem} ${view === "interview-prep" ? styles.active : ""}`}
+              onClick={() => navigate("interview-prep")}
+            >
+              <IoChatbubbles />
+              Interview Prep
+            </button>
           </nav>
 
           <div className={styles.userSection}>
@@ -228,6 +289,23 @@ export default function Home() {
             </div>
           ) : view === "dashboard" ? (
             <Dashboard applications={applications} onNavigate={navigate} />
+          ) : view === "kanban" ? (
+            <KanbanBoard
+              applications={applications}
+              onStatusChange={handleStatusChange}
+              onEdit={(app) => {
+                setEditingApp(app);
+                setModalOpen(true);
+              }}
+            />
+          ) : view === "analytics" ? (
+            <Analytics applications={applications} />
+          ) : view === "cover-letter" ? (
+            <CoverLetterGenerator applications={applications} />
+          ) : view === "resume-match" ? (
+            <ResumeMatchScore />
+          ) : view === "interview-prep" ? (
+            <InterviewPrep applications={applications} />
           ) : (
             <ApplicationList
               applications={applications}

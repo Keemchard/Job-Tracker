@@ -1,0 +1,319 @@
+@use "variables" as *;
+
+.header {
+  margin-bottom: 24px;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+
+  p {
+    color: $color-text-secondary;
+    font-size: 0.9rem;
+  }
+}
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: $color-text-muted;
+  font-size: 0.9rem;
+}
+
+.rateCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.rateCard {
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: 20px;
+  text-align: center;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: $color-border-light;
+    transform: translateY(-1px);
+  }
+}
+
+.rateValue {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.rateLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 8px;
+}
+
+.rateSub {
+  font-size: 0.75rem;
+  color: $color-text-muted;
+  margin-top: 4px;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 16px;
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chartCard {
+  background: $color-bg-secondary;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: 20px;
+
+  h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+}
+
+.barChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 180px;
+  padding-top: 20px;
+}
+
+.barGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  position: relative;
+}
+
+.barWrapper {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.bar {
+  width: 70%;
+  max-width: 36px;
+  min-height: 2px;
+  border-radius: 3px 3px 0 0;
+  transition: height 0.4s ease;
+}
+
+.barLabel {
+  font-size: 0.6rem;
+  color: $color-text-muted;
+  white-space: nowrap;
+}
+
+.barValue {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: $color-text-secondary;
+  position: absolute;
+  top: 0;
+}
+
+// Funnel
+.funnel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.funnelRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.funnelLabel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: $color-text-secondary;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.funnelDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.funnelBarWrap {
+  flex: 1;
+  height: 20px;
+  background: $color-bg-tertiary;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.funnelBar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+  min-width: 2px;
+}
+
+.funnelCount {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $color-text-primary;
+  min-width: 24px;
+  text-align: right;
+}
+
+// Work mode bars
+.donutList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.donutItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.donutInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.donutLabel {
+  font-size: 0.8rem;
+  color: $color-text-secondary;
+}
+
+.donutPct {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.donutBarWrap {
+  height: 8px;
+  background: $color-bg-tertiary;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.donutBar {
+  height: 100%;
+  background: $color-accent;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+// Companies
+.companyList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.companyItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: $color-bg;
+  border-radius: $radius-sm;
+}
+
+.companyRank {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: $color-accent-muted;
+  color: $color-accent;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.companyName {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: $color-text-primary;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.companyCount {
+  font-size: 0.75rem;
+  color: $color-text-muted;
+  flex-shrink: 0;
+}
+
+// Status overview
+.statusGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.statusTile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: $color-bg;
+  border-radius: $radius-sm;
+}
+
+.statusTileDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.statusTileInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statusTileName {
+  font-size: 0.75rem;
+  color: $color-text-secondary;
+}
+
+.statusTileCount {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $color-text-primary;
+}

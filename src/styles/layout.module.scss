@@ -91,6 +91,15 @@
   }
 }
 
+.navLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 16px 12px 4px;
+}
+
 .main {
   flex: 1;
   margin-left: 260px;
