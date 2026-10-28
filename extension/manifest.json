@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "JobTracker — Save Job Applications",
-  "description": "Save job postings from LinkedIn, Indeed, Kalibrr and more to your JobTracker dashboard with one click.",
+  "name": "hired.log — Save Job Applications",
+  "description": "Save job postings from LinkedIn, Indeed, Kalibrr and more to your hired.log dashboard with one click.",
   "version": "1.0.0",
   "permissions": ["storage", "activeTab"],
   "action": {
