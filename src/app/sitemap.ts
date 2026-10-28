@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://job-tracker-one-mocha.vercel.app";
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://hired-log.vercel.app";
 
   return [
     {

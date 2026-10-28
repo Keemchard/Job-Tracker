@@ -5,7 +5,7 @@ import "@/styles/globals.scss";
 const APP_NAME = "hired.log";
 const APP_DESCRIPTION =
   "Track all your job applications in one place with hired.log — a free job hunt tracker. Log companies, monitor application statuses, track interviews, and stay organized throughout your entire job search.";
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://job-tracker-one-mocha.vercel.app";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://hired-log.vercel.app";
 
 export const viewport: Viewport = {
   width: "device-width",
